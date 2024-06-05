@@ -8,6 +8,15 @@ on:
     paths:
       - 'storybook/**'
   workflow_dispatch:
+    inputs:
+      story_title:
+        description: 'A short title for the story'
+        required: true
+        type: string
+      author_name:
+        description: "The author's name"
+        required: true
+        type: string
 
 jobs:
   build:
@@ -20,6 +29,7 @@ jobs:
       - name: Print Story
         run: |
           echo "Once upon a time in a faraway land"
-          echo "My Story was written by My Favorite Author"
+          echo "My Story was written by ${{ inputs.author_name }}"
           echo "This whimsical tale takes you on a journey through a magical forest where every flower could talk."
           echo "Will you explore its secrets?"
+          echo "Title of the story: ${{ inputs.story_title }}"
