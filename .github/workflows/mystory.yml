@@ -1,0 +1,25 @@
+name: Storybook Workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    paths:
+      - 'storybook/**'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Print Story
+        run: |
+          echo "Once upon a time in a faraway land"
+          echo "My Story was written by My Favorite Author"
+          echo "This whimsical tale takes you on a journey through a magical forest where every flower could talk."
+          echo "Will you explore its secrets?"
